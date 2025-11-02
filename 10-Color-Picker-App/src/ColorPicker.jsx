@@ -1,0 +1,26 @@
+import { useState } from "react"
+
+function ColorPicker (){
+
+    const [color, setColor] = useState();
+
+    function handleColorChange(event){
+        setColor(event.target.value)
+    }
+
+    return(
+        <>
+            <div className="color-picker-container">
+                <h1>Color Picker</h1>
+                {/* Każde stosowanie stylów css w JS musi znajdować się w obiekcie dlatego dajemy podwójne klamerki */}
+                <div className="color-display" style={{backgroundColor: color}}>
+                    <p>Selected color: {color}</p>
+                </div>
+                <label>Select a color: </label>
+                <input type="color" value={color} onChange={handleColorChange}/>
+            </div>
+        </>
+    )
+}
+
+export default ColorPicker
